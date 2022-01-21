@@ -1,7 +1,12 @@
 import pandas as pd
+import traceback
+import sys
 
-# Get user fav movies list
-user_fav_movies = pd.read_csv('fav-movies.csv')
+try: 
+  # Get user fav movies list
+  user_fav_movies = pd.read_csv(sys.argv[1])
+except Exception:
+  traceback.print_exc()
 
 # Get movie db
 movie_db = pd.read_csv('../ml-latest/movies.csv')
