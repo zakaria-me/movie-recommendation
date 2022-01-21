@@ -48,4 +48,5 @@ recommended_movie = most_popular_genre_movies_ratings.groupby(['movieId','title'
 # get rating 
 recommended_movie_rating = avg_ratings.loc[avg_ratings.idxmax()[0], avg_ratings.idxmax()[1]]
 
-print("We recommend you : " + recommended_movie[1] + ". Which has an average rating of : " + str(recommended_movie_rating))
+recommended_movie_letterbox_url = "https://letterboxd.com/search/" + recommended_movie[1].replace(' ','+') + "/"
+print("We recommend you : " + recommended_movie[1] + ". Which has an average rating of : " + str(recommended_movie_rating) + ". Visit " + recommended_movie_letterbox_url + " for more information")
