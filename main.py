@@ -2,11 +2,11 @@ import pandas as pd
 import traceback
 import sys
 
-try: 
-  # Get user fav movies list
-  user_fav_movies = pd.read_csv(sys.argv[1])
+try:
+    # Get user fav movies list
+    user_fav_movies = pd.read_csv(sys.argv[1])
 except Exception:
-  traceback.print_exc()
+    traceback.print_exc()
 
 # Get movie db
 movie_db = pd.read_csv('../ml-latest/movies.csv')
@@ -40,18 +40,19 @@ for index in range(len(movie_db.index)):
     if movie_db.iloc[index].get('genres').find('Animation') != -1:
         most_popular_genre_movies = most_popular_genre_movies.append(movie_db.iloc[index])
 
-movie_ratings=pd.read_csv('../ml-latest/ratings.csv')
+movie_ratings = pd.read_csv('../ml-latest/ratings.csv')
 
-# Get average ratings of theses movies
+# Get average ratings of these movies
 most_popular_genre_movies_ratings = pd.merge(left=movie_ratings, right=most_popular_genre_movies, on='movieId')
 
-avg_ratings = most_popular_genre_movies_ratings.groupby(['movieId','title'])['rating'].mean()
+avg_ratings = most_popular_genre_movies_ratings.groupby(['movieId', 'title'])['rating'].mean()
 
 # get most popular movie
-recommended_movie = most_popular_genre_movies_ratings.groupby(['movieId','title']).mean()["rating"].idxmax()
+recommended_movie = most_popular_genre_movies_ratings.groupby(['movieId', 'title']).mean()["rating"].idxmax()
 
 # get rating 
 recommended_movie_rating = avg_ratings.loc[avg_ratings.idxmax()[0], avg_ratings.idxmax()[1]]
 
-recommended_movie_letterbox_url = "https://letterboxd.com/search/" + recommended_movie[1].replace(' ','+') + "/"
-print("We recommend you : " + recommended_movie[1] + ". Which has an average rating of : " + str(recommended_movie_rating) + ". Visit " + recommended_movie_letterbox_url + " for more information")
+recommended_movie_letterbox_url = "https://letterboxd.com/search/" + recommended_movie[1].replace(' ', '+') + "/"
+print("We recommend you : " + recommended_movie[1] + ". Which has an average rating of : " + str(
+    recommended_movie_rating) + ". Visit " + recommended_movie_letterbox_url + " for more information")
