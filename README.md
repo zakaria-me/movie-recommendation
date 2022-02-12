@@ -3,6 +3,7 @@ This is intended as a simple pandas miniproject.
 # Demo
 
 ![](ressources/demo_speed.gif)
+*It is somewhat slow considering the amount of data the script has to read* 
 
 # Requirements
 
