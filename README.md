@@ -9,7 +9,7 @@ This is intended as a simple pandas miniproject.
 
 - Python
 - Pandas
-- [MovieLens dataset](https://grouplens.org/datasets/movielens/), more specifically the [m-latest.zip](https://files.grouplens.org/datasets/movielens/ml-latest.zip)
+- [MovieLens dataset](https://grouplens.org/datasets/movielens/), more specifically the [ml-latest.zip](https://files.grouplens.org/datasets/movielens/ml-latest.zip)
 
 
 # Features
