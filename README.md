@@ -1,5 +1,9 @@
 This is intended as a simple pandas miniproject.
 
+# Example output
+
+![](ressources/output.png)
+
 # Demo
 
 ![](ressources/demo_speed.gif)
