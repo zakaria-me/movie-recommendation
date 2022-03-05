@@ -35,10 +35,10 @@ for genre in genres_dict:
         most_popular_genre = genre
 
 # Get Movie of same genre
-most_popular_genre_movies = pd.DataFrame()
+most_popular_genre_movies = pd.DataFrame(columns=movie_db.columns)
 for index in range(len(movie_db.index)):
     if movie_db.iloc[index].get('genres').find('Animation') != -1:
-        most_popular_genre_movies = most_popular_genre_movies.append(movie_db.iloc[index])
+        most_popular_genre_movies = pd.concat([most_popular_genre_movies, movie_db.iloc[index].to_frame().T], ignore_index=True) 
 
 movie_ratings = pd.read_csv('../ml-latest/ratings.csv')
 
