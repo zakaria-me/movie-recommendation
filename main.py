@@ -1,6 +1,7 @@
 import pandas as pd
 import traceback
 import sys
+from console import *
 
 try:
     # Get user fav movies list
@@ -54,5 +55,5 @@ recommended_movie = most_popular_genre_movies_ratings.groupby(['movieId', 'title
 recommended_movie_rating = avg_ratings.loc[avg_ratings.idxmax()[0], avg_ratings.idxmax()[1]]
 
 recommended_movie_letterbox_url = "https://letterboxd.com/search/" + recommended_movie[1].replace(' ', '+') + "/"
-print("We recommend you : " + recommended_movie[1] + ". Which has an average rating of : " + str(
-    recommended_movie_rating) + ". Visit " + recommended_movie_letterbox_url + " for more information")
+console.print(Markdown("# We recommend to you : " + recommended_movie[1] + "\n- Which has an average rating of : " + str(
+    recommended_movie_rating) + ".\n- Visit " + recommended_movie_letterbox_url + " for more information"))
