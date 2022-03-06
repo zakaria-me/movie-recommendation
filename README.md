@@ -12,7 +12,8 @@ This is intended as a simple pandas miniproject.
 # Requirements
 
 - Python
-- Pandas
+- Pandas library
+- Rich library
 - [MovieLens dataset](https://grouplens.org/datasets/movielens/), more specifically the [ml-latest.zip](https://files.grouplens.org/datasets/movielens/ml-latest.zip)
 
 
